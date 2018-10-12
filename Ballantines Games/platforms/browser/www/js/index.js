@@ -116,11 +116,7 @@ function successCB() {
 function onDeviceReady() {
 	var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
 	db.transaction(populateDB, errorCB, successCB);
-	db.transaction(creaTablaRegistros, errorCB);
-	console.log(cordova.file);
-	
-	
-	
+	db.transaction(creaTablaRegistros, errorCB);	
 }
 
 
@@ -171,8 +167,6 @@ function goEdit() {
 	document.getElementById('qrpopup').style.display='none';
 }
 
-
-
 function goRegistro() {
 	
 	var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
@@ -188,8 +182,7 @@ function goRegistro() {
 	var sql = 'INSERT INTO registros (firstName, lastName,rut,email,birthday, recibe_info) VALUES ("' +firstName+'","'+lastName+'","'+rut+'","'+email+'","'+birthday+'","'+recibe_info+'");';
 	//var sql = 'INSERT INTO registro (firstName, lastName,rut,email,birthday, recibe_info) VALUES ("eric","birkner","111111111","email@dalso.com","1212122222","si");';
 	console.log(sql);
-	tx.executeSql(sql);
-	
+	tx.executeSql(sql);	
 		
 	
 	window.location= 'menu.html';

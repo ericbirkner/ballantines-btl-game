@@ -1,16 +1,10 @@
-/**
- * Author: Maximo Mena
- * GitHub: mmenavas
- * Twitter: @menamaximo
- * Project: Memory Workout
- * Description: The game interface
- */
-
-/**
- * @TODO Refactor code.
- */
+var timeleft = 30;
+var empezo = false;
+var downloadTimer;
 (function($) {
-
+  
+	
+  
   /************ Start hard coded settings ******************/
 
   // How long a non matching card is displayed once clicked.
@@ -45,13 +39,14 @@
       document.getElementById('memory--end-game-message').innerText = "";
       document.getElementById('memory--end-game-score').innerText = "";
       buildLayout($.cards, $.settings.rows, $.settings.columns);
+	  inicio();	
     }
 
   };
   
   
   reset.addEventListener('click', handleSettingsSubmission);
-
+	
   // Handle clicking on card
   var handleFlipCard = function (event) {
 
@@ -72,6 +67,7 @@
       }.bind(status), nonMatchingCardTime);
     }
     else if (status.code == 4) {
+	  //aca se acaba el juego	
       var score = parseInt((($.attempts - $.mistakes) / $.attempts) * 100, 10);
       var message = getEndGameMessage(score);
 
@@ -189,3 +185,31 @@
   };
 
 })(MemoryGame);
+
+
+function inicio(){
+	
+	if(!empezo){
+		document.getElementById("cronometro").style.display="block";
+	    console.log('inicio el juego');
+		empezo = true;
+		setTimeout(function(){
+			
+			downloadTimer = setInterval(function(){
+			timeleft--;
+			document.getElementById("cronometro").textContent = timeleft;
+			if(timeleft <= 0){
+				//
+				//final();
+				clearInterval(downloadTimer);
+				console.log('se acabó el tiempo');
+			}
+			},1000);			
+		},
+		2500);
+		return;
+	}else{
+		return false;	
+	}	
+}
+
