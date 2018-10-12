@@ -1,4 +1,4 @@
-var db_name="tombola_virtual.db";
+var db_name="ballantines_games.db";
 //var db_name="tombola";
 // Wait for Cordova to load
 //toekn para horus
@@ -14,6 +14,7 @@ var currentRow;
 function populateDB(tx) {
 	tx.executeSql('CREATE TABLE IF NOT EXISTS premios (id INTEGER PRIMARY KEY AUTOINCREMENT, name, number)');
 	
+	/*
 	//creo las tablas de configuracion
 	var sql = "SELECT * FROM premios where name like ('%parlante%') limit 1";	
 	console.log(sql);	
@@ -51,6 +52,7 @@ function populateDB(tx) {
 		}
 
 	});
+	*/
 }
 
 function creaTablaRegistros(tx) {
@@ -117,65 +119,8 @@ function onDeviceReady() {
 	db.transaction(creaTablaRegistros, errorCB);
 	console.log(cordova.file);
 	
-	/*
-	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
-		//alert(fs.root.name);
-		console.log('file system open: ' + fs.name);
-		fs.root.getFile("registros.txt", { create: true, exclusive: false }, function (fileEntry) {
-
-			console.log("fileEntry is file?" + fileEntry.isFile.toString());
-			// fileEntry.name == 'someFile.txt'
-			// fileEntry.fullPath == '/someFile.txt'
-			writeFile(fileEntry, null);
-
-		});
-
-	});
-	*/
 	
-}
-
-function writeFile(fileEntry, dataObj, isAppend) {
-    // Create a FileWriter object for our FileEntry (log.txt).
-    fileEntry.createWriter(function (fileWriter) {
-
-        fileWriter.onwriteend = function() {
-            console.log("Successful file read...");
-            readFile(fileEntry);
-        };
-
-        fileWriter.onerror = function (e) {
-            console.log("Failed file read: " + e.toString());
-        };
-
-        // If we are appending data to file, go to the end of the file.
-        if (isAppend) {
-            try {
-                fileWriter.seek(fileWriter.length);
-            }
-            catch (e) {
-                console.log("file doesn't exist!");
-            }
-        }
-        fileWriter.write(dataObj);
-    });
-}
-
-
-function readFile(fileEntry) {
-
-    fileEntry.file(function (file) {
-        var reader = new FileReader();
-
-        reader.onloadend = function() {
-            console.log("Successful file read: " + this.result);
-			//alert(fileEntry.fullPath);
-            ///displayFileData(fileEntry.fullPath + ": " + this.result);
-        };
-
-        reader.readAsText(file);
-
-    });
+	
 }
 
 
@@ -247,7 +192,7 @@ function goRegistro() {
 	
 		
 	
-	window.location= 'juego.html';
+	window.location= 'menu.html';
 	
 	
 	}, errorCB);
