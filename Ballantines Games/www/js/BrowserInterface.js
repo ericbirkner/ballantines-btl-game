@@ -37,7 +37,7 @@ var downloadTimer;
       document.getElementById('memory--settings-modal').classList.remove('show');
       document.getElementById('memory--end-game-modal').classList.remove('show');
       document.getElementById('memory--end-game-message').innerText = "";
-      document.getElementById('memory--end-game-score').innerText = "";
+      //document.getElementById('memory--end-game-score').innerText = "";
       buildLayout($.cards, $.settings.rows, $.settings.columns);
 	  inicio();	
     }
@@ -72,8 +72,8 @@ var downloadTimer;
       var message = getEndGameMessage(score);
 
       document.getElementById('memory--end-game-message').textContent = message;
-      document.getElementById('memory--end-game-score').textContent =
-          'Score: ' + score + ' / 100';
+			
+      //document.getElementById('memory--end-game-score').textContent = 'Score: ' + score + ' / 100';
 
       document.getElementById("memory--end-game-modal").classList.toggle('show');
     }
@@ -82,19 +82,26 @@ var downloadTimer;
 
   var getEndGameMessage = function(score) {
     var message = "";
-
+	  
+	 message = "¡Felicitaciones!"
+	 document.getElementById("memory--end-game-message").href="premio.html"; 
+	/*
     if (score == 100) {
-      message = "Amazing job!"
+      message = "¡Felicitaciones!"
+	  document.getElementById("memory--end-game-message").href="premio.html"; 
     }
     else if (score >= 70 ) {
-      message = "Great job!"
+		console.log('70');
+      message = "Fin del juego"
     }
     else if (score >= 50) {
-      message = "Great job!"
+		console.log('50');
+      message = "Fin del juego"
     }
     else {
-      message = "You can do better.";
-    }
+	  console.log('malo ql');	
+      message = "Fin del juego";
+    }*/
 
     return message;
   }
@@ -203,6 +210,8 @@ function inicio(){
 				//final();
 				clearInterval(downloadTimer);
 				console.log('se acabó el tiempo');
+				 document.getElementById('memory--end-game-message').textContent = "Fin del juego";			
+                 document.getElementById("memory--end-game-modal").classList.toggle('show');
 			}
 			},1000);			
 		},
