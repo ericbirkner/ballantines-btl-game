@@ -29,6 +29,14 @@ body{
 	overflow: hidden;
 }
 
+strong, h1, h2, h3, h4, h5{
+	/*
+	font-family: 'Conv_Futura Bold font',Sans-Serif;
+	letter-spacing: 2px;
+	*/
+	font-weight: bold;
+}
+
 a.volver{
 	text-shadow: 0 -1px 1px rgba(0,0,0,0.25), -2px 0 1px rgba(0,0,0,0.25);
     border-radius: 5px;
@@ -470,3 +478,43 @@ body.setup #qrpopup input[type=text]{
 #menu .wrapper a.btn.arma{
 	background-image: url('../img/juego33.png');
 }
+
+#intro .premio{
+	position: absolute;
+	width: 50%;
+	height: 500px;
+	right: 0;
+	top: 100px;
+	text-align: center;
+	animation-delay:1s;
+}
+
+#intro .premio a{
+	text-decoration: none;
+	color: #ffffff;
+}
+
+#intro .premio .huevo {
+  margin: 20px auto;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2em;
+  color: #001a3b;	
+  width: 350px;
+  height: 200px;
+  background: #ffffff;
+  border-radius: 175px / 100px;
+  position: relative;	
+}
+
+#intro .premio .huevo p {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+	font-weight: bold;
+    transform: translate(-50%, -50%); 
+}
+
+

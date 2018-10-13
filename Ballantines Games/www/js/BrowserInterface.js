@@ -206,7 +206,7 @@ function inicio(){
 			}
 			},1000);			
 		},
-		2500);
+		500);
 		return;
 	}else{
 		return false;	
