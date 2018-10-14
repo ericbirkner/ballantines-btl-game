@@ -81,3 +81,56 @@ body {
   user-select: none;           /* non-prefixed version, currently
                                   not supported by any browser */
 }
+
+#memory--end-game-modal {
+    background-color: rgba(0, 0, 0, .50);
+}
+
+#memory--end-game-modal .wrapper {
+  
+  margin: 0 auto;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2em;
+  color: #001a3b;	
+  width: 350px;
+  height: 200px;
+  background: #ffffff;
+  border-radius: 175px / 100px;
+  position: relative;	
+	
+}
+#memory--end-game-modal h2,
+#memory--end-game-modal h3 {
+  	margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+	font-weight: bold;
+    transform: translate(-50%, -50%); 
+}
+
+#memory--end-game-modal a {
+	text-decoration: none;
+	display: block;
+  	margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+	color: #001a3b;
+	font-weight: bold;
+    transform: translate(-50%, -50%); 
+}
+
+
+#cronometro{
+	font-size: 3em;
+	color: #fff;
+	left: 20px;
+	top: 2px;
+	position: absolute;
+	z-index: 10;
+	display: none;
+}

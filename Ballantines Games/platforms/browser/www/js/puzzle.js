@@ -20,18 +20,25 @@ var timeleft = 30;
 var empezo = false;
 var downloadTimer;
 
+var fotos = Array("img/puzzle/1.jpg","img/puzzle/2.jpg");
+
+var total = fotos.length;
+var elegido = Math.floor((Math.random() * total) + 1);	
+console.log(elegido);
 
 $(function() {
     $('#memory--settings-reset').on('click',function(){
 		$('#memory--settings-modal').removeClass('show');
 		$('#canvas').css({'opacity':'1','z-index':'3'}).addClass('fadeIn animated');
+		inicio();
+		
 	});
 });
 
 function init(){
-    _img = new Image();
+	_img = new Image();
     _img.addEventListener('load',onImage,false);
-    _img.src = "img/puzzle/1.jpg";
+    _img.src = fotos[elegido-1];
     //console.log(_img);
     _img.width = 744
     _img.height = 550
@@ -231,11 +238,47 @@ function gameOver(){
     document.ontouchend = null;
     document.ontouchmove = null;
     document.ontouchstart = null;
-    console.log('DONE YO');
+	clearInterval(downloadTimer);
+    if(timeleft>0){
+		msg = "¡Felicitaciones!"
+		document.getElementById("memory--end-game-message").href="premio.html"; 
+	}else{
+		msg = "Fin del juego";
+	}
+	document.getElementById('memory--end-game-message').textContent = msg;			
+	document.getElementById("memory--end-game-modal").classList.toggle('show');
+	$('#canvas').addClass('fadeOut');
+	
     if (kik.enabled) {
       kik.browser.setOrientationLock('free');
       setTimeout(function () {
             kik.browser.close();
         }, 600);
     }
+}
+
+function inicio(){
+	
+	if(!empezo){
+		document.getElementById("cronometro").style.display="block";
+	    console.log('inicio el juego');
+		empezo = true;
+		setTimeout(function(){
+			
+			downloadTimer = setInterval(function(){
+			timeleft--;
+			document.getElementById("cronometro").textContent = timeleft;
+			if(timeleft <= 0){
+				//
+				console.log(timeleft);
+				
+				gameOver();
+			}
+			},1000);			
+		},
+		500);
+		return;
+	}else{
+		return false;	
+	}	
 }
