@@ -139,15 +139,11 @@ function goRegistro() {
 	tx.executeSql(sql);	
 		
 	
-	window.location= 'menu.html';
+	window.location= 'menu.html';	
 	
-	
-	}, errorCB);
-	
+	}, errorCB);	
 	
 }
-
-
 
 //funcion random array
 (function($) {

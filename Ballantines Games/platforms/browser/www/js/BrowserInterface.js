@@ -84,7 +84,8 @@ var downloadTimer;
     var message = "";
 	  
 	 message = "¡Felicitaciones!"
-	 document.getElementById("memory--end-game-message").href="premio.html"; 
+	 document.getElementById("memory--end-game-message").href="premio.html";
+	 clearInterval(downloadTimer);
 	/*
     if (score == 100) {
       message = "¡Felicitaciones!"
