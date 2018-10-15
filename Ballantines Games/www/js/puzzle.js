@@ -26,6 +26,13 @@ var total = fotos.length;
 var elegido = Math.floor((Math.random() * total) + 1);	
 console.log(elegido);
 
+//esto previene que el subnormal haga drag en la pagina;
+var fixed = document.getElementById('fixed');
+fixed.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+}, false);
+
+
 $(function() {
     $('#memory--settings-reset').on('click',function(){
 		$('#memory--settings-modal').removeClass('show');

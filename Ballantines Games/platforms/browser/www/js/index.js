@@ -6,6 +6,12 @@ var logOb;
 //var token = "bc276116-da84-079f-01ca-dbaf91bf77d2";
 var token = "e62b90a3-7ecf-b747-f6eb-f11079fcbacd";
 
+//esto previene que el subnormal haga drag en la pagina;
+var fixed = document.getElementById('fixed');
+fixed.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+}, false);
+
 document.addEventListener("deviceready", onDeviceReady, false);
 
 var currentRow;

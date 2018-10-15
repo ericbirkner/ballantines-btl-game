@@ -21,9 +21,9 @@ $(function() {
 	
 	if(foto2=="11"){
 		$('#diferencias .wrapper .img2 .dot').eq(0).css({'right': '137px', 'top': '88px'});
-		$('#diferencias .wrapper .img2 .dot').eq(1).css({'right': '214px', 'top': '20px'});
+		$('#diferencias .wrapper .img2 .dot').eq(1).css({'left': '182px', 'top': '70px'});
 		$('#diferencias .wrapper .img2 .dot').eq(2).css({'right': '247px', 'top': '249px'});
-		$('#diferencias .wrapper .img2 .dot').eq(3).css({'left': '66px', 'top': '196px'});
+		$('#diferencias .wrapper .img2 .dot').eq(3).css({'left': '181px', 'top': '137px'});
 		$('#diferencias .wrapper .img2 .dot').eq(4).css({'right': '52px', 'top': '60px'});	
 	}
 	

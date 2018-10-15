@@ -1,6 +1,12 @@
 var timeleft = 30;
 var empezo = false;
 var downloadTimer;
+
+var fixed = document.getElementById('fixed');
+fixed.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+}, false);
+
 (function($) {
   
 	
