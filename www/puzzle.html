@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ballantines</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" type="text/css" href="css/puzzle.css">
+</head>
+
+<body onload="init();" id="fixed" >
+   	<div id="intro">
+   		<section id="memory--settings-modal" class="valign-table modal show fadeInDownBig animated"  >
+      <div class="valign-cell">
+
+          <input id="memory--settings-reset" type="button" value="Comenzar" />
+
+      </div>
+    </section>
+   	</div>
+   	<div id="cronometro"></div>
+    <img id="imagen">
+    <canvas id="canvas" class ="noselect"></canvas>
+    <section id="memory--end-game-modal" class="valign-table modal">
+      <div class="valign-cell">
+        <div class="wrapper pulse animated infinite">
+          <a href="index.html" id="memory--end-game-message"></a>
+        </div>
+      </div>
+    </section>
+    <!--<script src="cordova.js"></script>-->
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/puzzle.js"></script>
+
+</body>
+
+</html>
