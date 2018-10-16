@@ -1,4 +1,10 @@
 var timeleft = 30;
+
+//si esta seteado, usamos el valor
+if (localStorage.memoriza) {
+	timeleft = parseInt(localStorage.memoriza);
+}
+
 var empezo = false;
 var downloadTimer;
 

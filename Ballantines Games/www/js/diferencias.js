@@ -1,6 +1,11 @@
 // JavaScript Document
 //yo
 var timeleft = 30;
+
+if (localStorage.diferencias) {
+	timeleft = parseInt(localStorage.diferencias);
+}
+
 var empezo = false;
 var downloadTimer;
 

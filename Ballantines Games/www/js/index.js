@@ -14,6 +14,9 @@ fixed.addEventListener('touchmove', function(e) {
 
 document.addEventListener("deviceready", onDeviceReady, false);
 
+
+
+
 var currentRow;
 // Populate the database
 //
@@ -74,6 +77,26 @@ function successCB() {
  // Cordova is ready
 //
 function onDeviceReady() {
+	
+	//se crean variables para almacenar tiempos
+	if(typeof(Storage) !== "undefined") {
+		console.log(localStorage);
+		if (!localStorage.memoriza) {
+			localStorage.memoriza = 30;
+		}
+
+		if (!localStorage.diferencias) {
+			localStorage.diferencias = 30;
+		}
+
+		if (!localStorage.puzzle) {
+			localStorage.puzzle = 30;
+		} 
+
+	} else {
+		console.log("no le lleva web storage...");
+	}
+	
 	var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
 	db.transaction(populateDB, errorCB, successCB);
 	db.transaction(creaTablaRegistros, errorCB);	

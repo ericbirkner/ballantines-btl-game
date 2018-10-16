@@ -17,13 +17,18 @@ var _mouse;
 
 //yo
 var timeleft = 30;
+
+if (localStorage.puzzle) {
+	timeleft = parseInt(localStorage.puzzle);
+} 
+
 var empezo = false;
 var downloadTimer;
 
 var fotos = Array("img/puzzle/1.jpg","img/puzzle/2.jpg");
 
 var total = fotos.length;
-var elegido = Math.floor((Math.random() * total) + 1);	
+var elegido = Math.floor((Math.random() * total) + 1);
 console.log(elegido);
 
 //esto previene que el subnormal haga drag en la pagina;
@@ -35,10 +40,24 @@ fixed.addEventListener('touchmove', function(e) {
 
 $(function() {
     $('#memory--settings-reset').on('click',function(){
-		$('#memory--settings-modal').removeClass('show');
-		$('#canvas').css({'opacity':'1','z-index':'3'}).addClass('fadeIn animated');
-		inicio();
-		
+
+    $('#imagen').attr('src',fotos[elegido-1]);
+
+
+
+    $('#imagen').fadeIn('fast',function(){
+
+      setTimeout(function(){
+        $(this).addClass('fadeOut animated');
+        $('#memory--settings-modal').removeClass('show');
+    		$('#canvas').css({'opacity':'1','display':'block'}).addClass('fadeIn animated');
+    		inicio();
+      }, 3000);
+
+    });
+
+
+
 	});
 });
 
@@ -49,9 +68,8 @@ function init(){
     //console.log(_img);
     _img.width = 744
     _img.height = 550
-    if(kik.enabled){
-      kik.browser.setOrientationLock('landscape');
-    }
+
+
 }
 
 function onImage(e){
@@ -248,44 +266,39 @@ function gameOver(){
 	clearInterval(downloadTimer);
     if(timeleft>0){
 		msg = "¡Felicitaciones!"
-		document.getElementById("memory--end-game-message").href="premio.html"; 
+		document.getElementById("memory--end-game-message").href="premio.html";
 	}else{
 		msg = "Fin del juego";
 	}
-	document.getElementById('memory--end-game-message').textContent = msg;			
+	document.getElementById('memory--end-game-message').textContent = msg;
 	document.getElementById("memory--end-game-modal").classList.toggle('show');
 	$('#canvas').addClass('fadeOut');
-	
-    if (kik.enabled) {
-      kik.browser.setOrientationLock('free');
-      setTimeout(function () {
-            kik.browser.close();
-        }, 600);
-    }
+
+
 }
 
 function inicio(){
-	
+
 	if(!empezo){
 		document.getElementById("cronometro").style.display="block";
 	    console.log('inicio el juego');
 		empezo = true;
 		setTimeout(function(){
-			
+
 			downloadTimer = setInterval(function(){
 			timeleft--;
 			document.getElementById("cronometro").textContent = timeleft;
 			if(timeleft <= 0){
 				//
 				console.log(timeleft);
-				
+
 				gameOver();
 			}
-			},1000);			
+			},1000);
 		},
 		500);
 		return;
 	}else{
-		return false;	
-	}	
+		return false;
+	}
 }
