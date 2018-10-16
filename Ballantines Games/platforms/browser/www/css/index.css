@@ -29,6 +29,14 @@ body{
 	overflow: hidden;
 }
 
+strong, h1, h2, h3, h4, h5{
+	/*
+	font-family: 'Conv_Futura Bold font',Sans-Serif;
+	letter-spacing: 2px;
+	*/
+	font-weight: bold;
+}
+
 a.volver{
 	text-shadow: 0 -1px 1px rgba(0,0,0,0.25), -2px 0 1px rgba(0,0,0,0.25);
     border-radius: 5px;
@@ -103,7 +111,7 @@ a.sincronizar{
 	animation-delay:1s;
 }
 
-#formulario{
+#formulario, #diferencias{
   width: 100%;
   height: 100%;
   position: absolute;
@@ -234,73 +242,6 @@ a.sincronizar{
 }
 
 
-#juego{
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background: url(../img/formulario.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  z-index: 1;		
-}
-
-#juego .logo{
-	width: 20%;
-	height: auto;
-	position: absolute;
-	z-index: 2;
-	top: 50%;
-	left: 5%;
-	animation-delay:1s;
-}
-
-#juego .contenedor-rueda{
-    width:526px;
-	
-    display:inline-block;
-    vertical-align: bottom;
-    position:relative;
-	float: right;
-    margin: 10% 5% 0 0;
-}
-
-#juego .contenedor-rueda .indicador{
-    position:absolute;
-	top:-30px;
-    left:50%;
-	margin-left:-24px;
-	display:block;
-	z-index:10;
-	width:53px;
-	height:86px;
-}
-
-#juego .contenedor-rueda .rueda{
-    margin-top:2px;
-	display:block;
-}
-
-#juego .tu_premio{
-	width: 30%;
-	left: 5%;
-	top: 10%;
-	height: 25%;
-	position: absolute;
-	text-align: center;
-	display: none;
-}
-
-#juego .tu_premio .box_premio{
-	background: #fff;
-	text-transform: uppercase;
-	border-radius: 50%;
-	padding: 30px 20px;
-	color: #001a3b;
-	font-size: 2em;
-	font-family: 'Conv_Futura Bold font',Sans-Serif;
-}
 
 body.setup{
   overflow: auto;
@@ -437,7 +378,7 @@ body.setup #qrpopup input[type=text]{
 
 #menu .wrapper{
 	width: 993px;
-	margin: 14% auto;
+	margin: 20% auto;
 }
 
 #menu .wrapper a.btn{
@@ -470,3 +411,45 @@ body.setup #qrpopup input[type=text]{
 #menu .wrapper a.btn.arma{
 	background-image: url('../img/juego33.png');
 }
+
+#intro .premio{
+	position: absolute;
+	width: 50%;
+	height: 500px;
+	right: 0;
+	top: 100px;
+	text-align: center;
+	animation-delay:1s;
+}
+
+#intro .premio a{
+	text-decoration: none;
+	color: #ffffff;
+}
+
+#intro .premio .huevo {
+  margin: 20px auto;
+  text-align: center;
+  text-transform: uppercase;  
+  color: #001a3b;	
+  width: 350px;
+  height: 200px;
+  background: #ffffff;
+  border-radius: 175px / 100px;
+  position: relative;	
+}
+
+#intro .premio .huevo p {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+	font-size: 2.1em;
+	font-family: 'Conv_FuturaExtraBlack';
+    margin-right: -50%;
+	
+	font-weight: bold;
+    transform: translate(-50%, -50%); 
+}
+
+

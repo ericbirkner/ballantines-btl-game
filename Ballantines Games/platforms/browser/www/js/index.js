@@ -6,6 +6,12 @@ var logOb;
 //var token = "bc276116-da84-079f-01ca-dbaf91bf77d2";
 var token = "e62b90a3-7ecf-b747-f6eb-f11079fcbacd";
 
+//esto previene que el subnormal haga drag en la pagina;
+var fixed = document.getElementById('fixed');
+fixed.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+}, false);
+
 document.addEventListener("deviceready", onDeviceReady, false);
 
 var currentRow;
@@ -14,57 +20,11 @@ var currentRow;
 function populateDB(tx) {
 	tx.executeSql('CREATE TABLE IF NOT EXISTS premios (id INTEGER PRIMARY KEY AUTOINCREMENT, name, number)');
 	
-	/*
-	//creo las tablas de configuracion
-	var sql = "SELECT * FROM premios where name like ('%parlante%') limit 1";	
-	console.log(sql);	
-	tx.executeSql(sql,
-	[], function(tx, results) {
-		console.log(results);
-		if(results.rows.length==0){
-			console.log('no hay parlante');
-			tx.executeSql('INSERT INTO premios (name,number) VALUES ("parlante", "0")');
-		}
-
-	});
-
-
-	var sql = "SELECT * FROM premios where name like ('%finest%') limit 1";	
-	console.log(sql);	
-	tx.executeSql(sql,
-	[], function(tx, results) {
-		console.log(results);
-		if(results.rows.length==0){
-			console.log('parlante');
-			tx.executeSql('INSERT INTO premios (name,number) VALUES ("finest", "0")');
-		}
-
-	});
-
-	var sql = "SELECT * FROM premios where name like ('%audifono%') limit 1";	
-	console.log(sql);	
-	tx.executeSql(sql,
-	[], function(tx, results) {
-		console.log(results);
-		if(results.rows.length==0){
-			console.log('audifono');
-			tx.executeSql('INSERT INTO premios (name,number) VALUES ("audifonos", "0")');
-		}
-
-	});
-	*/
 }
 
 function creaTablaRegistros(tx) {
 	
-	tx.executeSql('CREATE TABLE IF NOT EXISTS registros (id INTEGER PRIMARY KEY AUTOINCREMENT, firstName,lastName,rut,email,birthday, recibe_info)');
-	
-	//inserto los premios
-	/*
-	tx.executeSql('INSERT INTO premios (id,name,number) VALUES (1,"parlante",100);');
-	tx.executeSql('INSERT INTO premios (id,name,number) VALUES (2,"parlantes",80);');
-	tx.executeSql('INSERT INTO premios (id,name,number) VALUES (3,"audifonos",20);');			  
-	*/
+	tx.executeSql('CREATE TABLE IF NOT EXISTS registros (id INTEGER PRIMARY KEY AUTOINCREMENT, firstName,lastName,rut,email,birthday, recibe_info)');	
 }
 
 // Query the database
@@ -185,15 +145,11 @@ function goRegistro() {
 	tx.executeSql(sql);	
 		
 	
-	window.location= 'menu.html';
+	window.location= 'menu.html';	
 	
-	
-	}, errorCB);
-	
+	}, errorCB);	
 	
 }
-
-
 
 //funcion random array
 (function($) {

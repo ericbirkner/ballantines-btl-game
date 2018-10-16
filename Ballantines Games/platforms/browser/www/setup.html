@@ -15,7 +15,7 @@
 </head>
 
 <body class="setup">
-   	<a href="index.html" class="volver">< Inicio</a>
+   	<a href="index.html" class="volver">&lt; Inicio</a>
    
     <h1>Premios</h1>
     <!--popup edición-->
@@ -26,7 +26,7 @@
             <button onclick="goEdit()">guardar</button>
             <button onclick="document.getElementById('qrpopup').style.display='none';">cerrar</button>
     </div>
-	<!--
+	
     <div class="box">
 		<form id="form">
 		<table border="0" style="border: 0;" >
@@ -44,14 +44,12 @@
         
 		</form>	
     </div>
+    
     <div style="text-align: center">
-        <button onclick="goInsert()">Agregar</button>
-        
-		<button onclick="goSearch()">Buscar</button>
-        <button onclick="successCB()">Búscar</button>
-		    </div>
-	<hr/>
-   -->
+		<button onclick="goInsert()" id="fixed">Agregar</button>
+    </div>
+	
+   
    <hr/>
     <div id="tblDiv"></div>
 
